@@ -6,8 +6,9 @@ import java.io.InputStream;
 import java.util.List;
 
 public abstract class FileStream {
-
-	public abstract List<String> read(InputStream input) throws IOException;
+		
+	public abstract void write(InputStream input, String fileName) throws IOException;
+	public abstract List<String> read() throws IOException;
 	
 	public void delete(File file) {
 		file.delete();

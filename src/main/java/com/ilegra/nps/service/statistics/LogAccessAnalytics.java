@@ -15,7 +15,7 @@ import com.ilegra.nps.model.Summary;
 import com.ilegra.nps.service.converter.DataRowListConverter;
 
 public class LogAccessAnalytics implements Analytics{
-	
+		
 	@Override
 	public Summary summarize(List<String> lines) throws Exception {
 		List<DataRow> dataRows = new DataRowListConverter().convert(lines);
