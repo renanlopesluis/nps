@@ -26,6 +26,6 @@ public enum ConverterTypeEnum {
 	public static ConverterTypeEnum getFromType(DataRowTypeEnum dataRowType) throws EnumNotFoundException {
 		List<ConverterTypeEnum> types = Arrays.asList(values());
 		return types.stream().filter(x -> x.dataRowType.equals(dataRowType)).findFirst()
-				.orElseThrow(() -> new EnumNotFoundException("No such enum for this id"));
+				.orElseThrow(() -> new EnumNotFoundException("Enum not found!"));
 	}
 }

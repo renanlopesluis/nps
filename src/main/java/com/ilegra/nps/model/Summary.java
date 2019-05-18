@@ -1,33 +1,33 @@
 package com.ilegra.nps.model;
 
-import java.util.Map;
+import java.util.List;
 
 public class Summary {
 
-	private Map<String, Long> topThreeMostAcessedURLsInTheWorld;
-	private Map<Object, Long> topThreeMostAcessedURLsPerRegion;
+	private List<RankedUrl> topThreeMostAcessedURLsInTheWorld;
+	private List<RankedUrlPerRegion> topThreeMostAcessedURLsPerRegion;
 	private String theLeastAccessedUrlInTheWorld;
-	private Map<Object, Long> topThreeMostAcessedURLsPerDayWeekYear;
+	private List<RankedAccessPerDayWeekYear> topThreeAccessesPerDayWeekYear;
 	private Integer theMinuteWithMoreAcess;
 	
-	public Summary(Map<String, Long> topThreeMostAcessedURLsInTheWorld,
-			Map<Object, Long> topThreeMostAcessedURLsPerRegion,
+	public Summary(List<RankedUrl> topThreeMostAcessedURLsInTheWorld,
+			List<RankedUrlPerRegion> topThreeMostAcessedURLsPerRegion,
 			String theLeastAccessedUrlInTheWorld,
-			Map<Object, Long> topThreeMostAcessedURLsPerDayWeekYear,
+			List<RankedAccessPerDayWeekYear> topThreeMostAcessedURLsPerDayWeekYear,
 			Integer theMinuteWithMoreAcess) {
 		super();
 		this.topThreeMostAcessedURLsInTheWorld = topThreeMostAcessedURLsInTheWorld;
 		this.topThreeMostAcessedURLsPerRegion = topThreeMostAcessedURLsPerRegion;
 		this.theLeastAccessedUrlInTheWorld = theLeastAccessedUrlInTheWorld;
-		this.topThreeMostAcessedURLsPerDayWeekYear = topThreeMostAcessedURLsPerDayWeekYear;
+		this.topThreeAccessesPerDayWeekYear = topThreeMostAcessedURLsPerDayWeekYear;
 		this.theMinuteWithMoreAcess = theMinuteWithMoreAcess;
 	}
 
-	public Map<String, Long> getTopThreeMostAcessedURLsInTheWorld() {
+	public List<RankedUrl> getTopThreeMostAcessedURLsInTheWorld() {
 		return topThreeMostAcessedURLsInTheWorld;
 	}
 
-	public Map<Object, Long> getTopThreeMostAcessedURLsPerRegion() {
+	public List<RankedUrlPerRegion> getTopThreeMostAcessedURLsPerRegion() {
 		return topThreeMostAcessedURLsPerRegion;
 	}
 
@@ -35,8 +35,8 @@ public class Summary {
 		return theLeastAccessedUrlInTheWorld;
 	}
 
-	public Map<Object, Long> getTopThreeMostAcessedURLsPerDayWeekYear() {
-		return topThreeMostAcessedURLsPerDayWeekYear;
+	public List<RankedAccessPerDayWeekYear> getTopThreeAccessesPerDayWeekYear() {
+		return topThreeAccessesPerDayWeekYear;
 	}
 
 	public Integer getTheMinuteWithMoreAcess() {
