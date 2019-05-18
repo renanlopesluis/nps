@@ -26,7 +26,7 @@ bastaria apenas a criação de uma nova classe com novas regras implementando/ex
 - _localhost:8080/nps/restapi/laa/metrics_: Não possui parâmetros, apenas executar a requisição para coleta de métricas que retornará em JSON. Obs: É necessário que existam arquivos logs no servidor para serem processados. Para isso basta ter enviado um arquivo com os logs para que este seja processado
 
 **Notas importantes**
-- Existe uma pasta "logs" na raiz do projeto, mas ela so abriga um exemplo de arquivo ".log" utilizado para os testes e exemplificar a dispoição dos dados.
+- Existe uma pasta "logs" na raiz do projeto, mas ela apenas abriga um exemplo de arquivo ".log" utilizado para os testes e exemplificar a dispoição dos dados.
 - Conforme são enviados os arquivos ".log" (com nomes diferentes), a aplicação processará todos quando "localhost:8080/nps/restapi/laa/metrics", logo após os arquivos são deletados.
 - Qualidade: 99,1% de cobertura de testes;
 - Dado que números de acessos a um site em escala mundial,algumas tipagens de dados foram escolhidas especificamente em algumas modelo:
