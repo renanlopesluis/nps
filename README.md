@@ -21,9 +21,9 @@ bastaria apenas a criação de uma nova classe com novas regras implementando/ex
 
 **Funcionamento da API**
 <br/>
-- localhost:8080/nps/restapi/laaa/health: Não é necessário parâmetro, apenas executar a requisição para saber o estado do servidor;
-- localhost:8080/nps/restapi/laar/ingest: Necessário que o nome do parâmetro seja "file" e que seu valor seja um arquivo ".log" selecionado no computador;
-- localhost:8080/nps/restapi/laa/metrics: Não possui parâmetros, apenas executar a requisição para coleta de métricas que retornará em JSON. Obs: É necessário que existam arquivos logs no servidor para serem processados. Para isso basta ter enviado um arquivo com os logs para que este seja processado
+- _localhost:8080/nps/restapi/laaa/health_: Não é necessário parâmetro, apenas executar a requisição para saber o estado do servidor;
+- _localhost:8080/nps/restapi/laar/ingest_: Necessário que o nome do parâmetro seja "file" e que seu valor seja um arquivo ".log" selecionado no computador;
+- _localhost:8080/nps/restapi/laa/metrics_: Não possui parâmetros, apenas executar a requisição para coleta de métricas que retornará em JSON. Obs: É necessário que existam arquivos logs no servidor para serem processados. Para isso basta ter enviado um arquivo com os logs para que este seja processado
 
 **Notas importantes**
 - Conforme são enviados os arquivos ".log" (com nomes diferentes), a aplicação processará todos quando "localhost:8080/nps/restapi/laa/metrics", logo após os arquivos são deletados.
