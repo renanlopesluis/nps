@@ -28,7 +28,7 @@ bastaria apenas a criação de uma nova classe com novas regras implementando/ex
 **Notas importantes**
 - Existe uma pasta "logs" na raiz do projeto, mas ela apenas abriga um exemplo de arquivo ".log" utilizado para os testes e exemplificar a dispoição dos dados.
 - Conforme são enviados os arquivos ".log" (com nomes diferentes), a aplicação processará todos quando "localhost:8080/nps/restapi/laa/metrics", logo após os arquivos são deletados.
-- Qualidade: 99,1% de cobertura de testes;
+- Qualidade: 99,5% de cobertura de testes;
 - Dado que números de acessos a um site em escala mundial,algumas tipagens de dados foram escolhidas especificamente em algumas modelo:
   - O tipo Long para o número de acessos (já que um novo acesso é algo que frequentemente ocorrerá, valores exorbitantes não seriam raros);
   - O tipo String para demais campos inclusive ids de usuários e código de região, vistos que, embora sejam agrupados para o cálculo de métricas,
