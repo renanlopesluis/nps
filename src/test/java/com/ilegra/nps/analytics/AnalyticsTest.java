@@ -1,7 +1,10 @@
 package com.ilegra.nps.analytics;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TimeZone;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -40,7 +43,55 @@ public class AnalyticsTest {
 	@Test
 	public void shouldSummarizeData() throws Exception {
 		Summary summary = analytics.summarize(data);
-		Assert.assertNotNull(summary);
+		checkSummaryAsserts(summary);
+		
 	}
+	
+	private void checkSummaryAsserts(Summary summary) {
+		Assert.assertNotNull(summary);
+		checkTopThreeTheMostAccessedUrls(summary);
+		checkTopThreeTheMostAccessedUrlsPerRegion(summary);
+		checkTheMinuteWithMoreAccess(summary);
+		checkTheTopThreeAccessesPerDayWeekYear(summary);
+		
+	}
+	
+	private void checkTopThreeTheMostAccessedUrls(Summary summary) {
+		Assert.assertEquals(summary.getTopThreeMostAcessedURLsInTheWorld().get(0).getUrl(), "/pets/exotic/cats/10");
+		Assert.assertEquals(summary.getTopThreeMostAcessedURLsInTheWorld().get(1).getUrl(), "/tiggers/bid/now");
+		Assert.assertEquals(summary.getTopThreeMostAcessedURLsInTheWorld().get(2).getUrl(), "/pets/guaipeca/dogs/1");
+		Assert.assertTrue(summary.getTopThreeMostAcessedURLsInTheWorld().get(0).getNumberOfAccesses().equals(3L));
+		Assert.assertTrue(summary.getTopThreeMostAcessedURLsInTheWorld().get(1).getNumberOfAccesses().equals(2L));
+		Assert.assertTrue(summary.getTopThreeMostAcessedURLsInTheWorld().get(2).getNumberOfAccesses().equals(1L));
+	}
+	
+	private void checkTopThreeTheMostAccessedUrlsPerRegion(Summary summary) {
+		Assert.assertEquals(summary.getTopThreeMostAcessedURLsPerRegion().get(0).getUrl(), "/pets/exotic/cats/10");
+		Assert.assertEquals(summary.getTopThreeMostAcessedURLsPerRegion().get(1).getUrl(), "/dogs/bid/now");
+		Assert.assertEquals(summary.getTopThreeMostAcessedURLsPerRegion().get(2).getUrl(), "/pets/guaipeca/dogs/1");
+		Assert.assertTrue(summary.getTopThreeMostAcessedURLsPerRegion().get(0).getNumberOfAccesses().equals(2L));
+		Assert.assertTrue(summary.getTopThreeMostAcessedURLsPerRegion().get(1).getNumberOfAccesses().equals(1L));
+		Assert.assertTrue(summary.getTopThreeMostAcessedURLsPerRegion().get(2).getNumberOfAccesses().equals(1L));
+	}
+	
+	private void checkTheMinuteWithMoreAccess(Summary summary) {
+		LocalDateTime dateTime = getLocalDateTime();
+		Assert.assertTrue(summary.getTheMinuteWithMoreAcess().equals(dateTime.getMinute()));
+	}
+	
+	private void checkTheTopThreeAccessesPerDayWeekYear(Summary summary) {
+		LocalDateTime dateTime = getLocalDateTime();
+		Assert.assertEquals(summary.getTheLeastAccessedUrlInTheWorld(), "/pets/guaipeca/dogs/1");
+		Assert.assertTrue(summary.getTopThreeAccessesPerDayWeekYear().get(0).getDay().equals(dateTime.getDayOfMonth()));
+		Assert.assertEquals(summary.getTopThreeAccessesPerDayWeekYear().get(0).getDayOfWeek(), dateTime.getDayOfWeek().toString());
+		Assert.assertTrue(summary.getTopThreeAccessesPerDayWeekYear().get(0).getYear().equals(dateTime.getYear()));
+		Assert.assertTrue(summary.getTopThreeAccessesPerDayWeekYear().get(0).getNumberOfAccesses().equals(7L));
 
+	}
+	
+	private LocalDateTime getLocalDateTime() {
+		return LocalDateTime.ofInstant(
+				Instant.ofEpochSecond(Long.parseLong("1037825323")), 
+				TimeZone.getDefault().toZoneId());
+	}
 }
