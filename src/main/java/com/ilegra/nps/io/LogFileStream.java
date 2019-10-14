@@ -22,7 +22,7 @@ public class LogFileStream extends FileStream{
 	@Override
 	public void write(InputStream input, String fileName) throws IOException {
 		try {
-			File file = new File(FileConfiguration.PATH.toString()+"\\"+fileName);
+			File file = new File(FileConfiguration.PATH.toString()+FileConfiguration.SPLITTER+fileName);
 			file.getParentFile().mkdirs();
 			OutputStream outputStream = new FileOutputStream(file);
 			int read = 0;
